@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: gray;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+
+  width: 100%;
+  max-width: 350px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  border-radius: 10px;
+  gap: 1rem;
+
+  transform-origin: top;
+  transition: transform 0.5s cubic-bezier(0.36, 0, 0.66, -0.56);
+  z-index: -1;
+}
+
+form label {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  display: block;
+}
+
+input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #ced6e0;
+  border-radius: 10px;
+  outline: none;
+  height: 2.5rem;
+}
+
+form div {
+  flex-grow: 1;
+  flex-basis: 400px;
+}
+
+form .back {
+  flex-grow: 1;
+  flex-basis: 100px;
+}
+
+#Btn {
+  margin-top: 1.5rem;
+  background-color: greenyellow;
+}
+
+#Btn:hover {
+  transition: 1s;
+  background-color: green;
+}
+
+/*Boton */
+
+button.modal {
+  color: white;
+  background-color: greenyellow;
+  height: 64px;
+  width: 64px;
+  border: none;
+  border-radius: 100%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -2rem;
+  z-index: 1;
+
+  transform: rotateZ(45deg);
+  transition: transform 0.2s, background-color 0.2s;
+
+}
+
+button.modal span{
+    height: 3rem;
+}
+
+button.modal:hover {
+  background-color: green;
+}
+
+/*Animacion de el boton*/
+body:has(form.hidden) button.modal{
+    transform: rotateZ(90deg);
+}
+
+/*animacion paraocultar el formulario*/
+form.hidden{
+    transform: scaleY(0);
+}
+
+/*Carta*/
+
+.card {
+  position: relative;
+  color: white;
+
+  width: 100%;
+  max-width: 400px;
+
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  aspect-ratio: 1.6;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.card .front {
+  background: url(./img/card-front.jpg);
+  background-size: cover;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card .back {
+  background: url(./img/card-back.jpg);
+  background-size: cover;
+
+  transform: rotateY(180deg);
+}
+
+/*Rotacion de la carta*/
+
+main:has(input#CCV:focus) .card,
+.card.flip {
+  transform: rotateY(180deg);
+  transition: transform 1s ease;
+}
+
+/*cosas de la tarjeta de frente*/
+.chip {
+  height: 50px;
+  width: 60px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .label {
+  display: block;
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.card span {
+  font-size: 1.5rem;
+}
+
+/*cosas de la tarjeta de atras*/
+
+.back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.band {
+  width: 100%;
+  height: 55px;
+  background-color: black;
+  margin-top: 25px;
+}
+
+.info {
+  color: white;
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  height: auto;
+  margin-top: 70px;
+}
+
+#firma {
+  width: 200px;
+  height: 30px;
+  color: black;
+  display: flex;
+  align-items: center;
+  background: repeating-linear-gradient(
+    rgb(98, 217, 240) 0% 20%,
+    orange 20% 40%
+  );
+}
+
+#ccv {
+  background-color: rgb(255, 255, 255);
+  height: 30px;
+  width: 50px;
+  color: black;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/style.css">
+    <title>Tarjeta de Credito</title>
+</head>
+<body>
+
+    <main>
+
+        <div class="card" id="card">
+            <div class="front">
+                <img src="./Style/img/card-chip.png" alt="chip" class="chip">
+                <div>
+                    <span class="label">Numero de la tarjeta</span>
+                    <span id="NumeroTarjeta">#### #### #### ####</span>
+                </div>
+                
+                <div class="row">
+                    <div>
+                        <span class="label">Nombre completo</span>
+                        <span id="name"></span>
+                    </div>
+        
+                    <div>
+                        <span class="label">Fecha de expiracion</span>
+                        <span id="numeroExpiracion">MM/AA</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="back">
+                <div class="band"></div>
+                
+                <div class="info">
+                    <div class="firmacontainer">
+                        <span class="label">Firma</span>
+                        <div id="firma"></div>
+                    </div>
+                    <div class="ccvcontainer">
+                        <span class="label">CCV</span>
+                        <div id="ccv"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="modal" onclick="toggleForm()">
+            <span>+</span>
+        </button>
+
+        <form id="form">
+            <div>
+                <label>Nombre completo</label>
+                <input type="text" id="NombreCompleto">
+            </div>
+
+            <div>
+                <label>Numero de tarjeta</label>
+                <input type="text" id="numeroTrt" maxlength="19">
+            </div>
+
+            <div class="back">
+                <label>Expiracion</label>
+                <input type="month" id="Expiracion">
+            </div>
+            
+            <div class="back">
+                <label>CCV</label>
+                <input type="text" id="CCV" maxlength="3">
+            </div>
+
+            <input type="button" value="Submit" id="Btn">
+        </form>
+
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
